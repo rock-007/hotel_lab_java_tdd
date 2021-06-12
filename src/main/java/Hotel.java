@@ -10,15 +10,22 @@ public class Hotel {
     private ArrayList<BedRoom> bedrooms;
     private ArrayList<ConferenceRoom> conferenceRooms;
     //private HashMap<BedRoom, Integer> bookedRooms;
-    private Booking booking;
+    private Booking hotelBooking;
     private String name;
 
-    public Hotel(String name) {
+    public Hotel(String name, Booking hotelBooking) {
         this.bedrooms = new ArrayList<>();
         this.conferenceRooms = new ArrayList<>();
         this.name = name;
-        this.bookedRooms = new HashMap<>();
-        this.booking = new Booking();
+        this.hotelBooking = hotelBooking;
+    }
+
+    public Booking getHotelBooking() {
+        return hotelBooking;
+    }
+
+    public void setHotelBooking(Booking hotelBooking) {
+        this.hotelBooking = hotelBooking;
     }
 
     public ArrayList<BedRoom> getBedrooms() {
@@ -95,14 +102,10 @@ public class Hotel {
         return result;
     }
 
-    public void createBooking(BedRoom bedroom, int numberOfNights) {
-        if (!searchBookedBedroom(bedroom)) {
-            bookedRooms.put(bedroom, numberOfNights);
-        }
+    public void addBooking(BedRoom bedroom, int numberOfNights) {
+        hotelBooking.setBookedRooms(bedroom, numberOfNights);
+
     }
 
-    public boolean searchBookedBedroom(BedRoom bedroom) {
 
-        return bookedRooms.containsKey(bedroom);
-    }
 }

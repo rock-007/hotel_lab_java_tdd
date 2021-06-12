@@ -19,7 +19,7 @@ public class HotelTest {
 
     @Before
     public void before() {
-        hotel = new Hotel("Hilton-Hotel");
+        hotel = new Hotel("Hilton-Hotel", new Booking());
         bedRoom = new BedRoom(3, 4, RoomType.TRIPLE);
         guest1 = new Guest("Umair");
         guest2 = new Guest("John");
@@ -57,7 +57,7 @@ public class HotelTest {
         hotel.addGuestToBedroom(bedRoom, guest1);
         hotel.addGuestToBedroom(bedRoom, guest2);
         hotel.addGuestToBedroom(bedRoom, guest3);
-        hotel.createBooking(bedRoom, 5);
-        assertEquals(true, hotel.searchBookedBedroom(bedRoom));
+        hotel.addBooking(bedRoom, 5);
+        assertEquals(true, hotel.getHotelBooking().getBookedRooms().containsKey((4)));
     }
 }
