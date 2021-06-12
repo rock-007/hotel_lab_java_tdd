@@ -1,21 +1,41 @@
 import rooms.BedRoom;
 
+import java.util.HashMap;
+
 public class Booking {
 
-    private BedRoom bedRoom;
-    private int numberOfNightsBooked;
+    private HashMap<BedRoom, Integer> bookedRooms;
 
-    public Booking(BedRoom bedRoom, int numberOfNightsBooked){
-        this.bedRoom = bedRoom;
-        this.numberOfNightsBooked = numberOfNightsBooked;
+    public Booking() {
+
+        this.bookedRooms = new HashMap<>();
     }
 
-    public BedRoom getBedRoom() {
-        return bedRoom;
+    public HashMap<BedRoom, Integer> getBookedRooms() {
+        return bookedRooms;
     }
 
-    public int getNumberOfNightsBooked() {
-        return numberOfNightsBooked;
+    public void setBookedRooms(BedRoom bedroom, int noOfdaysBooked) {
+
+        if (bedRoomExist(bedroom) && bedRoomCapacity(bedroom) > 0) {
+
+        } else if (bedRoomExist(bedroom) && bedRoomCapacity(bedroom) <= 0) {
+
+        } else {
+            bookedRooms.put(bedroom, noOfdaysBooked);
+
+
+        }
+
+
     }
 
+    private boolean bedRoomExist(BedRoom bedroom) {
+        for (room : bookedRooms){
+            if (room == bedroom){
+
+            }
+        }
+
+    }
 }
