@@ -4,11 +4,13 @@ public class BedRoom extends Room {
 
     private int roomNo;
     private RoomType roomtype;
+    private Integer nightRate;
 
-    public BedRoom(int capacity, int roomNo, RoomType roomtype) {
+    public BedRoom(int capacity, int roomNo, RoomType roomtype, int nightRate) {
         super(capacity);
         this.roomNo = roomNo;
         this.roomtype = roomtype;
+        this.nightRate = nightRate;
     }
 
     public int getRoomNo() {
@@ -37,5 +39,9 @@ public class BedRoom extends Room {
 
     public void decreaseCapacity() {
         super.decreaseCapacity();
+    }
+
+    public Integer getPrice(int noOfdaysBooked) {
+        return nightRate * noOfdaysBooked;
     }
 }

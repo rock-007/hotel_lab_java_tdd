@@ -11,7 +11,7 @@ public class BookingTest {
 
     @Before
     public void before() {
-        bedroom = new BedRoom(4, 5, RoomType.FAMILY);
+        bedroom = new BedRoom(4, 5, RoomType.FAMILY, 50);
         booking = new Booking();
         hotel = new Hotel("Hilton-Hotel", booking);
     }

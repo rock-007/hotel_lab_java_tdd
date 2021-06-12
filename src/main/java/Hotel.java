@@ -2,22 +2,33 @@ import rooms.*;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.stream.Collectors;
 
 import guests.Guest;
+import rooms.DiningRoom;
 
 public class Hotel {
 
     private ArrayList<BedRoom> bedrooms;
     private ArrayList<ConferenceRoom> conferenceRooms;
-    //private HashMap<BedRoom, Integer> bookedRooms;
+    private HashMap<String, DiningRoom> diningCollection;
     private Booking hotelBooking;
     private String name;
+
+    public HashMap<String, DiningRoom> getDiningCollection() {
+        return diningCollection;
+    }
+
+    public void setDiningCollection(DiningRoom diningRoom) {
+        this.diningCollection.put(diningRoom.getName(), diningRoom);
+    }
 
     public Hotel(String name, Booking hotelBooking) {
         this.bedrooms = new ArrayList<>();
         this.conferenceRooms = new ArrayList<>();
         this.name = name;
         this.hotelBooking = hotelBooking;
+        this.diningCollection = new HashMap<>();
     }
 
     public Booking getHotelBooking() {
@@ -102,9 +113,15 @@ public class Hotel {
         return result;
     }
 
-    public void addBooking(BedRoom bedroom, int numberOfNights) {
+    public Booking addBooking(BedRoom bedroom, int numberOfNights) {
         hotelBooking.setBookedRooms(bedroom, numberOfNights);
+        return hotelBooking;
+    }
 
+    public ArrayList<BedRoom> getVacentRooms() {
+        System.out.println(bedrooms.get(0).getCapacity());
+        ArrayList<BedRoom> filterBedroom = bedrooms.stream().filter(eachRoom -> eachRoom.getCapacity() > 0).collect(Collectors.toCollection(ArrayList::new));
+        return filterBedroom;
     }
 
 

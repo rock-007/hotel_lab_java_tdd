@@ -18,7 +18,8 @@ Use TDD in Junit to model the Hotel with Java classes, with separate test files 
 ### Extensions
 
 - Create a `Booking` class which contains a `Bedroom` and a number of nights booked.
-- Create a `bookRoom` method in your `Hotel`. This should book a given `Bedroom` for a number of nights. This should return a new `Booking` object.
+- Create a `bookRoom` method in your `Hotel`. This should book a given `Bedroom` 
+  for a number of nights. This should return a new `Booking` object.
 - Add a nightly rate to your `Bedroom`s and write a method to return the total bill for the `Booking`.
 - Add a `DiningRoom` class with a name, capacity, and collection of guests
 - Hotel will have a `HashMap` based collection of `DiningRoom`s.
